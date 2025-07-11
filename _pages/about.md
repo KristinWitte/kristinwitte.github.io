@@ -14,6 +14,6 @@ My research agenda broadly follows two main avenues: One the one hand, I am inte
 Next to my research, I deeply enjoy bouldering, hiking, dancing, reading, sailing and generally spending time outdoors.
 
 ## News
-- *July 2025*: I am attending the third addition of the [Computational Psychiatry Conference](https://cpconf.org) in Tuebingen and presenting a poster on a proof-of-concept study of the usage of open source LLMs in psychological talking therapy
+- *July 2025*: I am attending the third edition of the [Computational Psychiatry Conference](https://cpconf.org) in Tuebingen and presenting a poster on a proof-of-concept study of the usage of open source LLMs in psychological talking therapy
 - *June 2025*: Our paper on the reliability and validity of exploration task parameters was accepted for publication in Scientific Reports
 - *October 2024*: A new preprint, [Centaur: a foundation model of human cognition](https://arxiv.org/pdf/2410.20268), is out.

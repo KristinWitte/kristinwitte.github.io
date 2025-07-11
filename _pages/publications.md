@@ -37,4 +37,4 @@ You can also find my articles on <u><a href="{{ site.author.googlescholar }}">my
 
 [<span style="font-size:larger;">Inducing anxiety in large language models can induce bias.</span>](https://arxiv.org/abs/2304.11111)  
 Julian Coda-Forno, **Kristin Witte**, Akshay K. Jagadish, Marcel Binz, Zeynep Akata, Eric Schulz.  
-*arXiv preprint* arXiv:2304.11111 (2023).
+*arXiv preprint* arXiv:2304.11111 (2024).

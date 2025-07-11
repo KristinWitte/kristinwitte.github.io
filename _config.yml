@@ -21,7 +21,7 @@ repository               : "KristinWitte/kristinwitte.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "files/profile.jpg"
+  avatar           : "profile.jpg"
   name             : "Kristin Witte"
   pronouns         : "she/her"  
   bio              : "Doctoral Student in Computational Psychiatry passionate about making a real change in Mental Health Care"

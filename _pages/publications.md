@@ -13,6 +13,10 @@ You can also find my articles on <u><a href="{{ site.author.googlescholar }}">my
 
 ## Journal Articles
 
+[<span style="font-size:larger;">Model-based exploration is measurable across tasks but not linked to personality and psychiatric assessments</span>](https://www.nature.com/articles/s41598-025-09152-2?utm_source=rct_congratemailt&utm_medium=email&utm_campaign=oa_20250728&utm_content=10.1038/s41598-025-09152-2)  
+**Kristin Witte**\*, Mirko Thalmann\*, Eric Schulz.  
+*Scientific Reports* (2025).
+
 [<span style="font-size:larger;">A foundation model to predict and capture human cognition.</span>](https://www.nature.com/articles/s41586-025-09215-4)  
 *Marcel Binz, ... **Kristin Witte**, ... Eric Schulz.*  
 *Nature* (2025).
@@ -29,10 +33,6 @@ You can also find my articles on <u><a href="{{ site.author.googlescholar }}">my
 
 [<span style="font-size:larger;">Exploring the Unexplored: Worry as a Catalyst for Exploratory Behavior in Anxiety and Depression.</span>](https://osf.io/td8xh)  
 **Kristin Witte**, Toby Wise, Quentin J.M. Huys\*, Eric Schulz\*.  
-*OSF Preprints* (2024).
-
-[<span style="font-size:larger;">How should we measure exploration?</span>](https://osf.io/tzuey)  
-**Kristin Witte**\*, Mirko Thalmann\*, Eric Schulz.  
 *OSF Preprints* (2024).
 
 [<span style="font-size:larger;">Inducing anxiety in large language models can induce bias.</span>](https://arxiv.org/abs/2304.11111)  

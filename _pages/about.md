@@ -11,9 +11,11 @@ I am a senior-year PhD Student in Computational Psychiatry in the [Institute for
 
 My research agenda broadly follows two main avenues: One the one hand, I am interested in applying methods from Cognitive Computational Modelling to investigate the cognitive mechanisms involved in decision making and its relationship to symptoms of depression and anxiety. In the context of this research avenue I also investigated the reliability and validity of model-derived exploration parameters across several established exploration-exploitation tasks. On the other hand, I am investigating how Large Language Models (LLMs) can be used to understand and treat mental disorders. I conducted several studies testing how anxious responding can be induced in LLMs and am currently in the process of building an LLM that can supervise and improve Cognitive Behavioural Therapy.
 
-Next to my research, I deeply enjoy bouldering, hiking, dancing, reading, sailing and generally spending time outdoors.
+More broadly, I am committed to finding a way that research can have a real impact on people's well-being.
+
+Next to my research, I enjoy bouldering, hiking, dancing, reading, sailing and generally spending time outdoors.
 
 ## News
 - *July 2025*: I am attending the third edition of the [Computational Psychiatry Conference](https://cpconf.org) in Tuebingen and presenting a poster on a proof-of-concept study of the usage of open source LLMs in psychological talking therapy
-- *June 2025*: Our paper on the reliability and validity of exploration task parameters was accepted for publication in Scientific Reports
+- *June 2025*: Our paper on the reliability and validity of exploration task parameters was accepted for publication in Scientific Reports. You can find the full article [here](https://www.nature.com/articles/s41598-025-09152-2?utm_source=rct_congratemailt&utm_medium=email&utm_campaign=oa_20250728&utm_content=10.1038/s41598-025-09152-2)
 - *October 2024*: A new preprint, [Centaur: a foundation model of human cognition](https://arxiv.org/pdf/2410.20268), is out.

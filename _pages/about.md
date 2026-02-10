@@ -18,6 +18,7 @@ More broadly, I am committed to finding a way that research can have a real impa
 Next to my research, I enjoy bouldering, hiking, dancing, reading, sailing and generally spending time outdoors.
 
 ## News
+- *January 2026* I gave my first ever lecture to LMU medical students on challenges and opportunities of using AI chatbots in Medicine.
 - *July 2025*: The paper [A foundation model to predict and capture human cognition](https://www.nature.com/articles/s41586-025-09215-4) was accepted for publication in Nature.
 - *July 2025*: I am attending the third edition of the [Computational Psychiatry Conference](https://cpconf.org) in Tuebingen and presenting a poster on a proof-of-concept study of the usage of open source LLMs in psychological talking therapy
 - *June 2025*: Our paper on the reliability and validity of exploration task parameters was accepted for publication in Scientific Reports. You can find the full article [here](https://www.nature.com/articles/s41598-025-09152-2?utm_source=rct_congratemailt&utm_medium=email&utm_campaign=oa_20250728&utm_content=10.1038/s41598-025-09152-2)

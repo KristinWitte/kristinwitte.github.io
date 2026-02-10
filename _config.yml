@@ -24,7 +24,7 @@ author:
   avatar           : "profile.png"
   name             : "Kristin Witte"
   pronouns         : "she/her"  
-  bio              : "PhD Student in Computational Psychiatry passionate about making a real change in Mental Health Care"
+  bio              : "PhD Student in Computational Psychiatry and AI Safety passionate about making the world a slightly better place"
   location         : "Munich, Germany"
   employer         : "Helmholtz Munich"
   uri              : # URL
@@ -34,10 +34,10 @@ author:
   arxiv            : # URL - Update with the correct link to your profile
   googlescholar    : "https://scholar.google.com/citations?user=-4PyWB0AAAAJ&hl=en"
   impactstory      : # URL
-  orcid            : "http://orcid.org/0009-0009-8574-7472"
+  #orcid            : "http://orcid.org/0009-0009-8574-7472"
   semantic         : # URL
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  researchgate     : https://www.researchgate.net/profile/Kristin-Witte?ev=prf_overview
+  #researchgate     : https://www.researchgate.net/profile/Kristin-Witte?ev=prf_overview
   scopus           : # URL
 
   # Repositories and software development

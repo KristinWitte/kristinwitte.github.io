@@ -9,23 +9,16 @@ redirect_from:
 
 I am a senior-year Doctoral Researcher in Computational Psychiatry in the [Institute for Human-Centered AI](https://hcai-munich.com) at [Helmholtz Munich](https://helmholtz-munich.de) and the [Ludwig-Maximilians-University Munich](https://lmu.de) under the supervison of [Dr. Eric Schulz](https://hcai-munich.com/eric.html). I am eager to use my skills to make this world a slightly better place.
 
-**Research Background**
-
-My PhD work was mostly focussed on developping reliable computational models of human decision-making and studying how these processes relate to symptoms of anxiety and depression.
-
-Now, my work can be largely summarised as psychiatry for AI and AI for psychiatry. 
-
-Psychiatry for AI: I evaluate the behaviour of Large Language Models (LLMs) in a range of psychiatric contexts, such as users discussing their psychiatric struggles over longer timespans.
-
+**Research Background**  
+My PhD work was mostly focussed on developping reliable computational models of human decision-making and studying how these processes relate to symptoms of anxiety and depression.  
+Now, my work can be largely summarised as psychiatry for AI and AI for psychiatry.  
+Psychiatry for AI: I evaluate the behaviour of Large Language Models (LLMs) in a range of psychiatric contexts, such as users discussing their psychiatric struggles over longer timespans.  
 AI for Psychiatry: I investigate how LLMs can be used in psychotherapy research and practice. I build LLM applications for trialling different psychotherapy approaches as well as LLMs that can be used to provide psychotherapy feedback.
 
-**Where my passion lies**
-
+**Where my passion lies**  
 I want to make sure that AI development and deployment is proceeding in ethical ways. I am therefore working on building evaluation pipelines and continuously learning about AI Safety and my role in this increasingly urgent field.
 
-
-**Outside of work**
-
+**Outside of work**  
 I really like bouldering, hiking, sailing and generally being outdoors. I have a lot of plants and I do my best to keep them alive. I'm a terrible dancer and even worse singer but I deeply enjoy both.
 
 

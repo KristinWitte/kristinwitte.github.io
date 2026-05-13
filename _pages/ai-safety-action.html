@@ -1,0 +1,1041 @@
+---
+layout: none
+permalink: /ai-action/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Take Action on AI Safety</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --burg:        #7B2D3E;
+  --burg-dark:   #5A1E2C;
+  --burg-mid:    #B06070;
+  --burg-light:  #F5EAEC;
+  --text:        #1C1C1C;
+  --muted:       #606060;
+  --border:      #DDD8D2;
+  --bg:          #FAFAF7;
+  --bg-card:     #FFFFFF;
+  --bg-alt:      #F4F1ED;
+  --success:     #2D6A4F;
+  --success-bg:  #E8F5EE;
+  --warn:        #8A6500;
+  --error:       #C0392B;
+  --r:           5px;
+  --r-sm:        3px;
+  --shadow-sm:   0 1px 4px rgba(0,0,0,0.06);
+  --shadow:      0 3px 10px rgba(0,0,0,0.09);
+  --ff-display:  'Cormorant Garamond', Georgia, serif;
+  --ff-body:     'Source Sans 3', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--ff-body); font-size: 16px; line-height: 1.65; color: var(--text); background: var(--bg); }
+a { color: var(--burg); }
+a:hover { color: var(--burg-dark); }
+.ais-header { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 1.25rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+.ais-logo { font-family: var(--ff-display); font-size: 1.55rem; font-weight: 500; color: var(--text); letter-spacing: 0.01em; }
+.ais-logo em { color: var(--burg); font-style: normal; }
+.lang-toggle { display: flex; border: 1px solid var(--border); border-radius: var(--r-sm); overflow: hidden; }
+.lang-btn { padding: 0.3rem 0.8rem; font: 500 0.82rem var(--ff-body); letter-spacing: 0.06em; background: transparent; border: none; color: var(--muted); cursor: pointer; transition: all 0.15s; }
+.lang-btn.active { background: var(--burg); color: #fff; }
+.ais-tabs { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; overflow-x: auto; gap: 0; }
+.tab-btn { padding: 0.9rem 1.1rem; font: 500 0.88rem var(--ff-body); background: transparent; border: none; border-bottom: 2px solid transparent; color: var(--muted); cursor: pointer; white-space: nowrap; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; }
+.tab-btn:hover { color: var(--burg); }
+.tab-btn.active { color: var(--burg); border-bottom-color: var(--burg); }
+.ais-main { max-width: 740px; margin: 0 auto; padding: 2.25rem 2rem 4rem; }
+.ais-section { display: none; }
+.ais-section.active { display: block; }
+.h1 { font-family: var(--ff-display); font-size: 2.1rem; font-weight: 500; line-height: 1.2; margin-bottom: 0.6rem; }
+.h2 { font-family: var(--ff-display); font-size: 1.6rem; font-weight: 500; margin-bottom: 0.75rem; }
+.h3 { font: 600 0.75rem/1 var(--ff-body); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.6rem; }
+.lead { font-size: 1.05rem; color: var(--muted); margin-bottom: 1.75rem; line-height: 1.7; }
+.body-p { color: var(--muted); margin-bottom: 1rem; line-height: 1.7; font-size: 0.95rem; }
+.notice { background: var(--burg-light); border-left: 3px solid var(--burg); padding: 0.7rem 1rem; border-radius: 0 var(--r-sm) var(--r-sm) 0; margin-bottom: 1.5rem; font-size: 0.88rem; color: var(--burg-dark); line-height: 1.5; }
+.notice a { color: var(--burg-dark); font-weight: 600; }
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.4rem; margin-bottom: 1.1rem; box-shadow: var(--shadow-sm); }
+.card-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+.action-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.9rem; margin-bottom: 0.5rem; }
+.action-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.1rem; text-align: left; cursor: pointer; transition: all 0.15s ease; box-shadow: var(--shadow-sm); }
+.action-card:hover { border-color: var(--burg-mid); box-shadow: var(--shadow); transform: translateY(-2px); }
+.action-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
+.action-title { font: 600 0.92rem var(--ff-body); color: var(--text); margin-bottom: 0.2rem; }
+.action-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.45; }
+.cta-box { background: var(--burg); border-radius: 8px; padding: 1.6rem 1.75rem; margin-bottom: 1.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.cta-box h3 { font-family: var(--ff-display); font-size: 1.25rem; font-weight: 500; color: #fff; margin-bottom: 0.15rem; }
+.cta-box p { font-size: 0.88rem; color: rgba(255,255,255,0.82); }
+.btn { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.55rem 1.1rem; font: 500 0.88rem var(--ff-body); border: none; border-radius: var(--r-sm); cursor: pointer; text-decoration: none; transition: all 0.14s ease; white-space: nowrap; }
+.btn-primary { background: var(--burg); color: #fff; }
+.btn-primary:hover { background: var(--burg-dark); color: #fff; }
+.btn-white { background: #fff; color: var(--burg); }
+.btn-white:hover { background: #f0f0f0; }
+.btn-copy { background: var(--burg-light); color: var(--burg-dark); border: 1px solid var(--burg-mid); font-size: 0.8rem; padding: 0.32rem 0.7rem; }
+.btn-copy:hover { background: var(--burg); color: #fff; }
+.btn-copy.copied { background: var(--success-bg); color: var(--success); border-color: var(--success); }
+hr.divider { border: none; border-top: 1px solid var(--border); margin: 1.75rem 0; }
+.or-divider { text-align: center; position: relative; margin: 1.5rem 0; }
+.or-divider::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; border-top: 1px solid var(--border); }
+.or-divider span { position: relative; background: var(--bg); padding: 0 0.8rem; font-size: 0.82rem; color: var(--muted); }
+.mode-toggle { display: flex; border: 1px solid var(--border); border-radius: var(--r-sm); overflow: hidden; width: fit-content; margin-bottom: 1.4rem; }
+.mode-btn { padding: 0.48rem 1rem; font: 500 0.86rem var(--ff-body); background: transparent; border: none; border-right: 1px solid var(--border); color: var(--muted); cursor: pointer; transition: all 0.14s; }
+.mode-btn:last-child { border-right: none; }
+.mode-btn.active { background: var(--burg); color: #fff; }
+.mode-btn:hover:not(.active) { background: var(--bg-alt); }
+.msg-box { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--r); padding: 1.1rem 1.2rem; margin-bottom: 0.6rem; }
+.msg-text { font-size: 0.9rem; line-height: 1.65; white-space: pre-wrap; word-break: break-word; }
+.msg-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.7rem; flex-wrap: wrap; gap: 0.4rem; }
+.char-count { font-size: 0.78rem; color: var(--muted); }
+.char-count.warn  { color: var(--warn); font-weight: 600; }
+.char-count.error { color: var(--error); font-weight: 700; }
+.form-group { margin-bottom: 1.1rem; }
+.label { display: block; font: 500 0.88rem var(--ff-body); color: var(--text); margin-bottom: 0.35rem; }
+.label-sub { font-weight: 400; color: var(--muted); }
+.input, .textarea { width: 100%; font: 400 0.9rem var(--ff-body); color: var(--text); background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 0.55rem 0.85rem; outline: none; transition: border-color 0.14s; }
+.input:focus, .textarea:focus { border-color: var(--burg); }
+.textarea { resize: vertical; min-height: 170px; line-height: 1.65; }
+.textarea-sm { width: 100%; height: 68px; font: 400 0.87rem var(--ff-body); color: var(--text); background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 0.5rem 0.8rem; resize: vertical; outline: none; transition: border-color 0.14s; line-height: 1.55; }
+.textarea-sm:focus { border-color: var(--burg); }
+.radio-group { display: flex; flex-direction: column; gap: 0.45rem; }
+.radio-label { display: flex; align-items: center; gap: 0.6rem; padding: 0.48rem 0.75rem; border: 1px solid var(--border); border-radius: var(--r-sm); cursor: pointer; font-size: 0.9rem; background: var(--bg-card); transition: all 0.12s; }
+.radio-label:hover { border-color: var(--burg-mid); background: var(--burg-light); }
+.radio-label.selected { border-color: var(--burg); background: var(--burg-light); color: var(--burg-dark); }
+.radio-label input { accent-color: var(--burg); flex-shrink: 0; }
+.other-input-wrap { margin-top: 0.5rem; display: none; }
+.link-list { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; }
+.link-item { display: flex; align-items: center; gap: 0.85rem; padding: 0.8rem 1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); text-decoration: none; color: var(--text); transition: all 0.14s; box-shadow: var(--shadow-sm); }
+.link-item:hover { border-color: var(--burg-mid); color: var(--burg-dark); box-shadow: var(--shadow); }
+.link-icon { font-size: 1.2rem; flex-shrink: 0; }
+.link-label { font: 600 0.9rem var(--ff-body); }
+.link-desc { font-size: 0.81rem; color: var(--muted); }
+.prep-block { margin-bottom: 1.1rem; }
+.prep-q { font: 500 0.9rem var(--ff-body); color: var(--text); margin-bottom: 0.25rem; }
+.prep-hint { font-size: 0.79rem; color: var(--muted); margin-bottom: 0.4rem; font-style: italic; }
+.tips { list-style: none; }
+.tips li { display: flex; gap: 0.6rem; font-size: 0.88rem; color: var(--muted); padding: 0.45rem 0; border-bottom: 1px solid var(--border); line-height: 1.5; align-items: flex-start; }
+.tips li:last-child { border-bottom: none; }
+.tips li::before { content: "\2192"; color: var(--burg); flex-shrink: 0; margin-top: 0.05rem; }
+.org-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+.org-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.2rem; box-shadow: var(--shadow-sm); transition: all 0.15s; }
+.org-card:hover { box-shadow: var(--shadow); border-color: var(--burg-mid); transform: translateY(-2px); }
+.org-header { display: flex; gap: 0.7rem; align-items: flex-start; margin-bottom: 0.55rem; }
+.org-icon { width: 34px; height: 34px; background: var(--burg-light); border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+.org-name { font: 600 0.93rem var(--ff-body); color: var(--text); }
+.org-type { font: 400 0.73rem var(--ff-body); color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.org-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.5; margin-bottom: 0.7rem; }
+.org-link { font: 600 0.82rem var(--ff-body); color: var(--burg); text-decoration: none; }
+.org-link:hover { text-decoration: underline; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.email-addr { font-family: monospace; font-size: 1.05rem; font-weight: 700; color: var(--burg); letter-spacing: 0.02em; }
+@media (max-width: 580px) {
+  .ais-header { padding: 1rem 1.25rem; }
+  .ais-tabs { padding: 0 1rem; }
+  .ais-main { padding: 1.5rem 1.25rem 3rem; }
+  .h1 { font-size: 1.65rem; }
+  .h2 { font-size: 1.3rem; }
+  .cta-box { flex-direction: column; align-items: flex-start; }
+  .action-grid { grid-template-columns: 1fr 1fr; }
+  .org-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="ais-header">
+  <div class="ais-logo">Speak Up for <em>AI Safety</em></div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn"        onclick="setLang('de')">DE</button>
+  </div>
+</header>
+
+<nav class="ais-tabs">
+  <button class="tab-btn active" onclick="showTab('start',0)">
+    <span data-en="Get Started" data-de="Loslegen">Get Started</span>
+  </button>
+  <button class="tab-btn" onclick="showTab('aw',1)">
+    <span data-en="Abgeordnetenwatch" data-de="Abgeordnetenwatch">Abgeordnetenwatch</span>
+  </button>
+  <button class="tab-btn" onclick="showTab('email',2)">
+    <span data-en="Email Committee" data-de="E-Mail an Ausschuss">Email Committee</span>
+  </button>
+  <button class="tab-btn" onclick="showTab('call',3)">
+    <span data-en="Call Your Rep" data-de="Vertreter anrufen">Call Your Rep</span>
+  </button>
+  <button class="tab-btn" onclick="showTab('involve',4)">
+    <span data-en="Get Involved" data-de="Engagieren">Get Involved</span>
+  </button>
+</nav>
+
+<main class="ais-main">
+
+<!-- GET STARTED -->
+<section id="tab-start" class="ais-section active">
+  <div class="notice">
+    <span data-en="This tool is currently set up for German and EU representatives."
+          data-de="Dieses Tool ist derzeit fuer deutsche und EU-Vertreter ausgelegt.">
+      This tool is currently set up for German and EU representatives.
+    </span>
+  </div>
+  <h1 class="h1">
+    <span data-en="Make your voice heard on AI Safety"
+          data-de="Machen Sie Ihre Stimme zur KI-Sicherheit hoerbar">
+      Make your voice heard on AI Safety
+    </span>
+  </h1>
+  <p class="lead"
+     data-en="AI may be the most consequential technology of our time. Contacting your elected representatives is one of the most direct ways to shape how it is governed, and it takes less time than you think."
+     data-de="KI ist moeglicherweise die folgenreichste Technologie unserer Zeit. Ihre Vertreter zu kontaktieren ist einer der direktesten Wege, ihre Regulierung zu beeinflussen, und es dauert weniger Zeit als Sie denken.">
+    AI may be the most consequential technology of our time. Contacting your elected representatives is one of the most direct ways to shape how it is governed, and it takes less time than you think.
+  </p>
+  <div class="cta-box">
+    <div>
+      <h3 data-en="Only have 3 minutes?" data-de="Nur 3 Minuten Zeit?">Only have 3 minutes?</h3>
+      <p data-en="Submit a pre-written message to your rep instantly via ControlAI."
+         data-de="Senden Sie sofort eine vorgefertigte Nachricht ueber ControlAI.">Submit a pre-written message to your rep instantly via ControlAI.</p>
+    </div>
+    <a href="https://controlai.com/take-action" target="_blank" class="btn btn-white">
+      <span data-en="Go to ControlAI" data-de="Zu ControlAI">Go to ControlAI</span>
+    </a>
+  </div>
+  <div class="or-divider">
+    <span data-en="Or take a more personalised approach"
+          data-de="Oder waehlen Sie einen persoenlicheren Ansatz">Or take a more personalised approach</span>
+  </div>
+  <div class="action-grid">
+    <button class="action-card" onclick="showTab('aw',1)">
+      <div class="action-icon">&#128172;</div>
+      <div class="action-title">Abgeordnetenwatch</div>
+      <div class="action-desc"
+           data-en="Post a public question to a member of the Bundestag or EU Parliament."
+           data-de="Stellen Sie einem Bundestags- oder EU-Parlamentsmitglied eine oeffentliche Frage.">
+        Post a public question to a member of the Bundestag or EU Parliament.
+      </div>
+    </button>
+    <button class="action-card" onclick="showTab('email',2)">
+      <div class="action-icon">&#9993;</div>
+      <div class="action-title" data-en="Email Committee" data-de="E-Mail an Ausschuss">Email Committee</div>
+      <div class="action-desc"
+           data-en="Write directly to the Bundestag Committee on Digitalisation."
+           data-de="Schreiben Sie direkt an den Ausschuss fuer Digitales.">Write directly to the Bundestag Committee on Digitalisation.</div>
+    </button>
+    <button class="action-card" onclick="showTab('call',3)">
+      <div class="action-icon">&#128222;</div>
+      <div class="action-title" data-en="Call Your Rep" data-de="Vertreter anrufen">Call Your Rep</div>
+      <div class="action-desc"
+           data-en="Find your representative's number and prepare your talking points."
+           data-de="Finden Sie die Nummer Ihres Abgeordneten und bereiten Sie Argumente vor.">Find your representative's number and prepare your talking points.</div>
+    </button>
+    <button class="action-card" onclick="showTab('involve',4)">
+      <div class="action-icon">&#127760;</div>
+      <div class="action-title" data-en="Get Involved" data-de="Engagieren">Get Involved</div>
+      <div class="action-desc"
+           data-en="Join AI safety organisations and go deeper."
+           data-de="KI-Sicherheitsorganisationen beitreten und mehr tun.">Join AI safety organisations and go deeper.</div>
+    </button>
+  </div>
+</section>
+
+<!-- ABGEORDNETENWATCH -->
+<section id="tab-aw" class="ais-section">
+  <h2 class="h2">Abgeordnetenwatch</h2>
+  <p class="body-p"
+     data-en="Abgeordnetenwatch.de lets you post a public question to any member of the German Bundestag or the European Parliament. Your question and the representative's response are visible to everyone, creating public accountability. You can contact your local Bundestag member, your German MEPs in the EU Parliament, or both."
+     data-de="Abgeordnetenwatch.de ermoeglicht es Ihnen, Mitgliedern des Deutschen Bundestags oder des Europaeischen Parlaments oeffentliche Fragen zu stellen. Frage und Antwort sind fuer alle sichtbar. Sie koennen Ihren lokalen Bundestagsabgeordneten, Ihre deutschen EU-Abgeordneten oder beide kontaktieren.">
+    Abgeordnetenwatch.de lets you post a public question to any member of the German Bundestag or the European Parliament. Your question and the representative's response are visible to everyone, creating public accountability.
+  </p>
+  <p class="body-p"
+     data-en="You paste two things: a short question (max 300 characters) into the question field, and a longer message (max 1,000 characters) as supporting context."
+     data-de="Sie fuegen zwei Texte ein: eine kurze Frage (max. 300 Zeichen) in das Fragefeld und eine laengere Nachricht (max. 1.000 Zeichen) als Kontext.">
+    You paste two things: a short question (max 300 characters) into the question field, and a longer message (max 1,000 characters) as supporting context.
+  </p>
+  <div class="notice">
+    <span data-en="Works for members of the Bundestag and the European Parliament. Find your representative at"
+          data-de="Fuer Mitglieder des Bundestags und des Europaeischen Parlaments. Abgeordnete finden auf">
+      Works for members of the Bundestag and the European Parliament. Find your representative at
+    </span>
+    <a href="https://www.abgeordnetenwatch.de" target="_blank">abgeordnetenwatch.de</a>.
+  </div>
+
+  <div class="mode-toggle">
+    <button class="mode-btn active" onclick="setMode('aw','default',this)">
+      <span data-en="Use Default" data-de="Standard verwenden">Use Default</span>
+    </button>
+    <button class="mode-btn" onclick="setMode('aw','custom',this)">
+      <span data-en="Personalise" data-de="Personalisieren">Personalise</span>
+    </button>
+  </div>
+
+  <!-- AW DEFAULT -->
+  <div id="aw-default">
+    <p class="h3" data-en="STEP 1 -- COPY THE QUESTION FIELD (max 300 characters)"
+                  data-de="SCHRITT 1 -- FRAGE KOPIEREN (max. 300 Zeichen)">STEP 1 -- COPY THE QUESTION FIELD (max 300 characters)</p>
+    <div class="msg-box">
+      <div id="aw-def-q" class="msg-text"></div>
+      <div class="msg-footer">
+        <span class="char-count" id="aw-def-q-cc"></span>
+        <button class="btn btn-copy" onclick="copyEl('aw-def-q',this)"
+                data-en="Copy question" data-de="Frage kopieren">Copy question</button>
+      </div>
+    </div>
+    <p class="h3 mt-3" data-en="STEP 2 -- COPY THE MESSAGE BODY (max 1,000 characters)"
+                       data-de="SCHRITT 2 -- NACHRICHT KOPIEREN (max. 1.000 Zeichen)">STEP 2 -- COPY THE MESSAGE BODY (max 1,000 characters)</p>
+    <div class="msg-box">
+      <div id="aw-def-m" class="msg-text"></div>
+      <div class="msg-footer">
+        <span class="char-count" id="aw-def-m-cc"></span>
+        <button class="btn btn-copy" onclick="copyEl('aw-def-m',this)"
+                data-en="Copy message" data-de="Nachricht kopieren">Copy message</button>
+      </div>
+    </div>
+    <a href="https://www.abgeordnetenwatch.de" target="_blank" class="btn btn-primary mt-2">
+      <span data-en="Open abgeordnetenwatch.de" data-de="abgeordnetenwatch.de oeffnen">Open abgeordnetenwatch.de</span>
+    </a>
+  </div>
+
+  <!-- AW CUSTOM -->
+  <div id="aw-custom" style="display:none">
+    <div class="form-group">
+      <label class="label">
+        <span data-en="Representative's name (for the greeting)" data-de="Name der/des Abgeordneten (fuer die Anrede)">Representative's name (for the greeting)</span>
+        <span class="label-sub" data-en=" (e.g. Frau Schmidt / Herr Mueller)" data-de=" (z.B. Frau Schmidt / Herr Mueller)"> (e.g. Frau Schmidt / Herr Mueller)</span>
+      </label>
+      <input class="input" id="aw-repname"
+             data-placeholder-en="e.g. Frau Schmidt" data-placeholder-de="z.B. Frau Schmidt"
+             placeholder="e.g. Frau Schmidt" oninput="updateAW()">
+    </div>
+    <div class="form-group">
+      <label class="label">
+        <span data-en="Your profession or background" data-de="Ihr Beruf oder Hintergrund">Your profession or background</span>
+        <span class="label-sub" data-en=" (e.g. software engineer, nurse, teacher)" data-de=" (z.B. Softwareingenieurin, Lehrerin, Aerztin)"> (e.g. software engineer, nurse, teacher)</span>
+      </label>
+      <input class="input" id="aw-profession"
+             data-placeholder-en="e.g. AI researcher" data-placeholder-de="z.B. KI-Forscherin"
+             placeholder="e.g. AI researcher" oninput="updateAW()">
+    </div>
+    <div class="form-group">
+      <label class="label" data-en="Which AI risks concern you? (select all that apply)" data-de="Welche KI-Risiken besorgen Sie? (Mehrfachauswahl moeglich)">Which AI risks concern you? (select all that apply)</label>
+      <div class="radio-group" id="aw-risk-group">
+        <label class="radio-label">
+          <input type="checkbox" id="aw-risk-control" value="control" onchange="handleRiskChange('aw','control');updateAW()">
+          <span data-en="Loss of control over AI systems" data-de="Kontrollverlust ueber KI-Systeme">Loss of control over AI systems</span>
+        </label>
+        <label class="radio-label">
+          <input type="checkbox" id="aw-risk-unemployment" value="unemployment" onchange="handleRiskChange('aw','unemployment');updateAW()">
+          <span data-en="Mass unemployment from AI automation" data-de="Massenarbeitslosigkeit durch KI-Automatisierung">Mass unemployment from AI automation</span>
+        </label>
+        <label class="radio-label">
+          <input type="checkbox" id="aw-risk-polarisation" value="polarisation" onchange="handleRiskChange('aw','polarisation');updateAW()">
+          <span data-en="Societal polarisation from AI disinformation" data-de="Gesellschaftliche Polarisierung durch KI-Desinformation">Societal polarisation from AI disinformation</span>
+        </label>
+        <label class="radio-label">
+          <input type="checkbox" id="aw-risk-misuse" value="misuse" onchange="handleRiskChange('aw','misuse');updateAW()">
+          <span data-en="AI-enabled misuse: cyberattacks and weapons development" data-de="KI-gestuetzter Missbrauch: Cyberangriffe und Waffenentwicklung">AI-enabled misuse: cyberattacks and weapons development</span>
+        </label>
+        <label class="radio-label selected">
+          <input type="checkbox" id="aw-risk-all" checked onchange="handleRiskChange('aw','all');updateAW()">
+          <span data-en="All of the above" data-de="Alle genannten Risiken">All of the above</span>
+        </label>
+        <label class="radio-label">
+          <input type="checkbox" id="aw-risk-other-cb" onchange="handleRiskChange('aw','other');updateAW()">
+          <span data-en="Other (please specify below)" data-de="Anderes (bitte unten angeben)">Other (please specify below)</span>
+        </label>
+      </div>
+      <div class="other-input-wrap" id="aw-risk-other-wrap">
+        <input class="input" id="aw-risk-other"
+               data-placeholder-en="Describe the risk you are most concerned about"
+               data-placeholder-de="Beschreiben Sie das Risiko, das Sie am meisten besorgt"
+               placeholder="Describe the risk you are most concerned about"
+               oninput="updateAW()">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="label">
+        <span data-en="Personal stake" data-de="Persoenlicher Bezug">Personal stake</span>
+        <span class="label-sub" data-en=" (optional)" data-de=" (optional)"> (optional)</span>
+      </label>
+      <input class="input" id="aw-stake"
+             data-placeholder-en="e.g. parent of two, AI researcher" data-placeholder-de="z.B. Mutter zweier Kinder, KI-Forscherin"
+             placeholder="e.g. parent of two, AI researcher" oninput="updateAW()">
+    </div>
+    <div class="form-group">
+      <label class="label" data-en="Your name" data-de="Ihr Name">Your name</label>
+      <input class="input" id="aw-name"
+             data-placeholder-en="e.g. Maria Schmidt" data-placeholder-de="z.B. Maria Schmidt"
+             placeholder="e.g. Maria Schmidt" oninput="updateAW()">
+    </div>
+
+    <p class="h3 mt-3"
+       data-en="YOUR QUESTION FIELD (max 300 characters -- paste into the question field)"
+       data-de="IHR FRAGEFELD (max. 300 Zeichen -- in das Fragefeld einfuegen)">YOUR QUESTION FIELD (max 300 characters)</p>
+    <textarea class="textarea" id="aw-cust-q" rows="3" style="min-height:80px"
+              oninput="charCount('aw-cust-q','aw-cq-cc',300)"></textarea>
+    <div class="msg-footer mb-2">
+      <span class="char-count" id="aw-cq-cc">0 / 300</span>
+      <button class="btn btn-copy" onclick="copyInput('aw-cust-q',this)"
+              data-en="Copy question" data-de="Frage kopieren">Copy question</button>
+    </div>
+    <p class="h3 mt-2"
+       data-en="YOUR MESSAGE BODY (max 1,000 characters -- paste into the message field)"
+       data-de="IHRE NACHRICHT (max. 1.000 Zeichen -- in das Nachrichtenfeld einfuegen)">YOUR MESSAGE BODY (max 1,000 characters)</p>
+    <textarea class="textarea" id="aw-cust-m" oninput="charCount('aw-cust-m','aw-cm-cc',1000)"></textarea>
+    <div class="msg-footer mb-2">
+      <span class="char-count" id="aw-cm-cc">0 / 1,000</span>
+      <button class="btn btn-copy" onclick="copyInput('aw-cust-m',this)"
+              data-en="Copy message" data-de="Nachricht kopieren">Copy message</button>
+    </div>
+    <a href="https://www.abgeordnetenwatch.de" target="_blank" class="btn btn-primary mt-1">
+      <span data-en="Open abgeordnetenwatch.de" data-de="abgeordnetenwatch.de oeffnen">Open abgeordnetenwatch.de</span>
+    </a>
+  </div>
+</section>
+
+<!-- EMAIL COMMITTEE -->
+<section id="tab-email" class="ais-section">
+  <h2 class="h2" data-en="Email the Committee on Digitalisation" data-de="E-Mail an den Ausschuss fuer Digitales">Email the Committee on Digitalisation</h2>
+  <p class="body-p"
+     data-en="The Ausschuss fuer Digitales und Staatsmodernisierung is the Bundestag committee most directly responsible for AI policy. A well-reasoned email from a constituent carries real weight."
+     data-de="Der Ausschuss fuer Digitales und Staatsmodernisierung ist der Bundestagsausschuss, der am direktesten fuer KI-Politik zustaendig ist. Eine gut begruendete Buerger-E-Mail hat echtes Gewicht.">
+    The Committee on Digitalisation and State Modernisation is the Bundestag committee most directly responsible for AI policy.
+  </p>
+  <div class="card card-row" style="margin-bottom:1.5rem">
+    <div>
+      <p class="h3" data-en="COMMITTEE EMAIL ADDRESS" data-de="E-MAIL-ADRESSE DES AUSSCHUSSES">COMMITTEE EMAIL ADDRESS</p>
+      <span class="email-addr">adi@bundestag.de</span>
+    </div>
+    <button class="btn btn-copy" onclick="copyRaw('adi@bundestag.de',this)"
+            data-en="Copy address" data-de="Adresse kopieren">Copy address</button>
+  </div>
+  <div class="notice">
+    <span data-en="Currently set up for the German Bundestag Committee on Digitalisation."
+          data-de="Derzeit fuer den deutschen Ausschuss fuer Digitales und Staatsmodernisierung ausgelegt.">Currently set up for the German Bundestag Committee on Digitalisation.</span>
+  </div>
+
+  <div class="mode-toggle">
+    <button class="mode-btn active" onclick="setMode('em','default',this)">
+      <span data-en="Use Default" data-de="Standard verwenden">Use Default</span>
+    </button>
+    <button class="mode-btn" onclick="setMode('em','custom',this)">
+      <span data-en="Personalise" data-de="Personalisieren">Personalise</span>
+    </button>
+  </div>
+
+  <!-- EMAIL DEFAULT -->
+  <div id="em-default">
+    <p class="h3" data-en="SUBJECT LINE" data-de="BETREFF">SUBJECT LINE</p>
+    <div class="msg-box" style="margin-bottom:1rem">
+      <div id="em-def-s" class="msg-text"></div>
+      <div class="msg-footer">
+        <span></span>
+        <button class="btn btn-copy" onclick="copyEl('em-def-s',this)"
+                data-en="Copy subject" data-de="Betreff kopieren">Copy subject</button>
+      </div>
+    </div>
+    <p class="h3" data-en="EMAIL BODY" data-de="E-MAIL-TEXT">EMAIL BODY</p>
+    <div class="msg-box">
+      <div id="em-def-b" class="msg-text"></div>
+      <div class="msg-footer">
+        <span></span>
+        <button class="btn btn-copy" onclick="copyEl('em-def-b',this)"
+                data-en="Copy email body" data-de="E-Mail-Text kopieren">Copy email body</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL CUSTOM -->
+  <div id="em-custom" style="display:none">
+    <div class="form-group">
+      <label class="label"><span data-en="Your profession or background" data-de="Ihr Beruf oder Hintergrund">Your profession or background</span></label>
+      <input class="input" id="em-profession"
+             data-placeholder-en="e.g. AI researcher" data-placeholder-de="z.B. KI-Forscherin"
+             placeholder="e.g. AI researcher" oninput="updateEM()">
+    </div>
+    <div class="form-group">
+      <label class="label" data-en="Which AI risks concern you? (select all that apply)" data-de="Welche KI-Risiken besorgen Sie? (Mehrfachauswahl moeglich)">Which AI risks concern you? (select all that apply)</label>
+      <div class="radio-group" id="em-risk-group">
+        <label class="radio-label">
+          <input type="checkbox" id="em-risk-control" value="control" onchange="handleRiskChange('em','control');updateEM()">
+          <span data-en="Loss of control over AI systems" data-de="Kontrollverlust ueber KI-Systeme">Loss of control over AI systems</span>
+        </label>
+        <label class="radio-label">
+          <input type="checkbox" id="em-risk-unemployment" value="unemployment" onchange="handleRiskChange('em','unemployment');updateEM()">
+          <span data-en="Mass unemployment from AI automation" data-de="Massenarbeitslosigkeit durch KI-Automatisierung">Mass unemployment from AI automation</span>
+        </label>
+        <label class="radio-label">
+          <input type="checkbox" id="em-risk-polarisation" value="polarisation" onchange="handleRiskChange('em','polarisation');updateEM()">
+          <span data-en="Societal polarisation from AI disinformation" data-de="Gesellschaftliche Polarisierung durch KI-Desinformation">Societal polarisation from AI disinformation</span>
+        </label>
+        <label class="radio-label">
+          <input type="checkbox" id="em-risk-misuse" value="misuse" onchange="handleRiskChange('em','misuse');updateEM()">
+          <span data-en="AI-enabled misuse: cyberattacks and weapons development" data-de="KI-gestuetzter Missbrauch: Cyberangriffe und Waffenentwicklung">AI-enabled misuse: cyberattacks and weapons development</span>
+        </label>
+        <label class="radio-label selected">
+          <input type="checkbox" id="em-risk-all" checked onchange="handleRiskChange('em','all');updateEM()">
+          <span data-en="All of the above" data-de="Alle genannten Risiken">All of the above</span>
+        </label>
+        <label class="radio-label">
+          <input type="checkbox" id="em-risk-other-cb" onchange="handleRiskChange('em','other');updateEM()">
+          <span data-en="Other (please specify below)" data-de="Anderes (bitte unten angeben)">Other (please specify below)</span>
+        </label>
+      </div>
+      <div class="other-input-wrap" id="em-risk-other-wrap">
+        <input class="input" id="em-risk-other"
+               data-placeholder-en="Describe the risk you are most concerned about"
+               data-placeholder-de="Beschreiben Sie das Risiko, das Sie am meisten besorgt"
+               placeholder="Describe the risk you are most concerned about"
+               oninput="updateEM()">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="label">
+        <span data-en="Personal stake" data-de="Persoenlicher Bezug">Personal stake</span>
+        <span class="label-sub" data-en=" (optional)" data-de=" (optional)"> (optional)</span>
+      </label>
+      <input class="input" id="em-stake"
+             data-placeholder-en="e.g. parent of two, PhD student in CS" data-placeholder-de="z.B. Mutter zweier Kinder, Doktorandin"
+             placeholder="e.g. parent of two, PhD student in CS" oninput="updateEM()">
+    </div>
+    <div class="form-group">
+      <label class="label">
+        <span data-en="What do you want the committee to do?" data-de="Was fordern Sie vom Ausschuss?">What do you want the committee to do?</span>
+        <span class="label-sub" data-en=" (optional -- if blank, a general call to action is included)" data-de=" (optional -- wenn leer, wird ein allgemeiner Aufruf eingefuegt)"> (optional)</span>
+      </label>
+      <textarea class="textarea" id="em-ask" style="min-height:90px"
+                data-placeholder-en="e.g. develop a comprehensive national AI risk strategy, ensure adequate oversight resources, establish an AI safety institute"
+                data-placeholder-de="z.B. eine nationale KI-Risikostrategie entwickeln, ausreichende Aufsichtsressourcen sicherstellen, ein KI-Sicherheitsinstitut einrichten"
+                placeholder="e.g. develop a comprehensive national AI risk strategy..."
+                oninput="updateEM()"></textarea>
+    </div>
+    <div class="form-group">
+      <label class="label" data-en="Are you open to being contacted about this?" data-de="Sind Sie fuer Rueckfragen erreichbar?">Are you open to being contacted about this?</label>
+      <div class="radio-group">
+        <label class="radio-label selected">
+          <input type="radio" name="em-contact" value="yes" checked onchange="updateEM();selectRadio(this)">
+          <span data-en="Yes -- I'm happy to discuss further" data-de="Ja -- ich stehe gerne fuer ein Gespraech zur Verfuegung">Yes -- I'm happy to discuss further</span>
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="em-contact" value="no" onchange="updateEM();selectRadio(this)">
+          <span data-en="No -- just sharing my concern" data-de="Nein -- ich moechte nur mein Anliegen mitteilen">No -- just sharing my concern</span>
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="label" data-en="Your name" data-de="Ihr Name">Your name</label>
+      <input class="input" id="em-name"
+             data-placeholder-en="e.g. Maria Schmidt" data-placeholder-de="z.B. Maria Schmidt"
+             placeholder="e.g. Maria Schmidt" oninput="updateEM()">
+    </div>
+    <p class="h3" data-en="SUBJECT LINE" data-de="BETREFF">SUBJECT LINE</p>
+    <div style="margin-bottom:1rem">
+      <input class="input" id="em-cust-s" style="margin-bottom:0.45rem">
+      <div class="msg-footer" style="margin-top:0">
+        <span></span>
+        <button class="btn btn-copy" onclick="copyInput('em-cust-s',this)"
+                data-en="Copy subject" data-de="Betreff kopieren">Copy subject</button>
+      </div>
+    </div>
+    <p class="h3" data-en="EMAIL BODY" data-de="E-MAIL-TEXT">EMAIL BODY</p>
+    <textarea class="textarea" id="em-cust-b" style="min-height:320px"></textarea>
+    <div class="msg-footer mt-1">
+      <span></span>
+      <button class="btn btn-copy" onclick="copyInput('em-cust-b',this)"
+              data-en="Copy email body" data-de="E-Mail-Text kopieren">Copy email body</button>
+    </div>
+  </div>
+</section>
+
+<!-- CALL -->
+<section id="tab-call" class="ais-section">
+  <h2 class="h2" data-en="Call Your Representative" data-de="Ihren Vertreter anrufen">Call Your Representative</h2>
+  <p class="body-p"
+     data-en="A phone call is one of the most impactful ways to reach a representative. Even a 2-minute conversation with a staff member counts. Prepare for 5 minutes and you'll be ready."
+     data-de="Ein Anruf ist eine der wirkungsvollsten Moeglichkeiten, einen Vertreter zu erreichen. Selbst ein 2-minuetiges Gespraech mit einer Mitarbeiterin zaehlt. 5 Minuten Vorbereitung reichen.">
+    A phone call is one of the most impactful ways to reach a representative. Even a 2-minute conversation with a staff member counts.
+  </p>
+  <div class="notice">
+    <span data-en="Currently set up for German Bundestag representatives only."
+          data-de="Derzeit nur fuer deutsche Bundestagsabgeordnete ausgelegt.">Currently set up for German Bundestag representatives only.</span>
+  </div>
+  <p class="h3" data-en="FIND YOUR REPRESENTATIVE'S NUMBER" data-de="NUMMER IHRES ABGEORDNETEN FINDEN">FIND YOUR REPRESENTATIVE'S NUMBER</p>
+  <div class="link-list">
+    <a href="https://www.bundestag.de/abgeordnete" target="_blank" class="link-item">
+      <span class="link-icon">&#127963;</span>
+      <div>
+        <div class="link-label">bundestag.de/abgeordnete</div>
+        <div class="link-desc"
+             data-en="Search by name or postcode; contact details including phone numbers on each profile"
+             data-de="Nach Name oder Postleitzahl suchen; Kontaktdaten einschliesslich Telefonnummern auf jedem Profil">Search by name or postcode; contact details including phone numbers on each profile</div>
+      </div>
+    </a>
+  </div>
+  <hr class="divider">
+  <p class="h3" data-en="PREPARE YOUR TALKING POINTS" data-de="GESPRAECHSPUNKTE VORBEREITEN">PREPARE YOUR TALKING POINTS</p>
+  <p class="body-p"
+     data-en="Answer these before you call. You don't need to read from them; they help you speak with clarity and confidence."
+     data-de="Beantworten Sie diese Fragen vor dem Anruf. Sie muessen nicht ablesen; sie helfen Ihnen, klar und sicher zu sprechen.">Answer these before you call. You don't need to read from them; they help you speak with clarity and confidence.</p>
+  <div class="prep-block">
+    <div class="prep-q" data-en="1. What specific AI risk do you want to raise?" data-de="1. Welches konkrete KI-Risiko moechten Sie ansprechen?">1. What specific AI risk do you want to raise?</div>
+    <div class="prep-hint" data-en="e.g. loss of control, job displacement, AI-driven disinformation, cyberattack risks" data-de="z.B. Kontrollverlust, Jobverlust, KI-Desinformation, Cyberangriffs-Risiken">e.g. loss of control, job displacement, AI-driven disinformation, cyberattack risks</div>
+    <textarea class="textarea-sm" placeholder="..."></textarea>
+  </div>
+  <div class="prep-block">
+    <div class="prep-q" data-en="2. Why does this matter to you personally?" data-de="2. Warum ist Ihnen das persoenlich wichtig?">2. Why does this matter to you personally?</div>
+    <div class="prep-hint" data-en="e.g. your profession, your family, your community" data-de="z.B. Ihr Beruf, Ihre Familie, Ihre Gemeinschaft">e.g. your profession, your family, your community</div>
+    <textarea class="textarea-sm" placeholder="..."></textarea>
+  </div>
+  <div class="prep-block">
+    <div class="prep-q" data-en="3. What specific action do you want them to commit to?" data-de="3. Welche konkrete Massnahme fordern Sie?">3. What specific action do you want them to commit to?</div>
+    <div class="prep-hint" data-en="e.g. support a national AI risk strategy, push for adequate oversight resources" data-de="z.B. eine nationale KI-Risikostrategie unterstuetzen, ausreichende Aufsichtsressourcen fordern">e.g. support a national AI risk strategy, push for adequate oversight resources</div>
+    <textarea class="textarea-sm" placeholder="..."></textarea>
+  </div>
+  <div class="prep-block">
+    <div class="prep-q" data-en="4. Do you have a direct question for them?" data-de="4. Haben Sie eine direkte Frage?">4. Do you have a direct question for them?</div>
+    <div class="prep-hint" data-en="e.g. 'Do you support a national AI risk strategy?'" data-de="z.B. 'Unterstuetzen Sie eine nationale KI-Risikostrategie?'">e.g. 'Do you support a national AI risk strategy?'</div>
+    <textarea class="textarea-sm" placeholder="..."></textarea>
+  </div>
+  <hr class="divider">
+  <p class="h3" data-en="TIPS FOR YOUR CALL" data-de="TIPPS FUER IHREN ANRUF">TIPS FOR YOUR CALL</p>
+  <ul class="tips">
+    <li><span data-en="State your name and that you're a constituent right at the start." data-de="Nennen Sie Ihren Namen und dass Sie Waehler/in sind -- gleich zu Beginn.">State your name and that you're a constituent right at the start.</span></li>
+    <li><span data-en="Keep it under 2 minutes; be focused and specific." data-de="Halten Sie das Gespraech unter 2 Minuten; fokussiert und konkret.">Keep it under 2 minutes; be focused and specific.</span></li>
+    <li><span data-en="If they're unavailable, leave a message with your name and one clear ask." data-de="Wenn nicht erreichbar, hinterlassen Sie eine Nachricht mit Namen und einer klaren Bitte.">If unavailable, leave a message with your name and one clear ask.</span></li>
+    <li><span data-en="Be respectful; you're more likely to be taken seriously." data-de="Bleiben Sie respektvoll; das erhoeht die Wahrscheinlichkeit, ernst genommen zu werden.">Be respectful; you're more likely to be taken seriously.</span></li>
+    <li><span data-en="Follow up with an email summarising your points." data-de="Senden Sie danach eine E-Mail mit einer Zusammenfassung Ihrer Punkte.">Follow up with an email summarising your points.</span></li>
+  </ul>
+</section>
+
+<!-- GET INVOLVED -->
+<section id="tab-involve" class="ais-section">
+  <h2 class="h2" data-en="Get More Involved" data-de="Mehr Engagement">Get More Involved</h2>
+  <p class="lead"
+     data-en="Contacting representatives is a powerful start. These organisations are working on AI safety across research, policy, and advocacy. Find one that fits your skills and interests."
+     data-de="Vertreter zu kontaktieren ist ein wichtiger Anfang. Diese Organisationen arbeiten an KI-Sicherheit in Forschung, Politik und Advocacy. Finden Sie eine, die zu Ihnen passt.">
+    Contacting representatives is a powerful start. These organisations are working on AI safety across research, policy, and advocacy.
+  </p>
+  <div class="org-grid" id="org-grid"></div>
+</section>
+
+</main>
+
+<script>
+let lang = 'en';
+
+const RISK_ITEMS = {
+  en: {
+    control:      'Loss of control: AI systems could acquire capabilities we can no longer steer or predict.',
+    unemployment: 'Mass unemployment: Automation displaces professions faster than social systems can adapt.',
+    polarisation: 'Societal polarisation: AI disinformation destabilises democratic processes; chatbots amplify this by uncritically agreeing with users.',
+    misuse:       'AI-enabled misuse: Advanced AI dramatically lowers the barrier to sophisticated cyberattacks and could accelerate the development of dangerous weapons, including biological ones.'
+  },
+  de: {
+    control:      'Kontrollverlust: KI-Systeme koennten Faehigkeiten erlangen, die wir nicht mehr steuern koennen.',
+    unemployment: 'Massenarbeitslosigkeit: Automatisierung verdraengt Berufsfelder schneller, als Sozialsysteme reagieren koennen.',
+    polarisation: 'Polarisierung: KI-Desinformation destabilisiert demokratische Prozesse; Chatbots verstaerken dies durch unkritisches Zustimmen.',
+    misuse:       'Missbrauchsrisiken: KI senkt die Huerde fuer ausgefeilte Cyberangriffe drastisch und koennte die Entwicklung gefaehrlicher Waffen, einschliesslich biologischer, beschleunigen.'
+  }
+};
+
+const RISKS_LONG = {
+  en: {
+    control:      '1. Loss of control: AI systems could acquire capabilities we can no longer fully steer or predict, with unforeseeable consequences for society and security.',
+    unemployment: '1. Mass unemployment: AI automation could displace entire professions faster than social safety nets and retraining programmes can respond.',
+    polarisation: '1. Societal polarisation: AI-driven disinformation can destabilise democratic processes. AI chatbots tendency to agree with users amplifies this further.',
+    misuse:       '1. AI-enabled misuse: Advanced AI dramatically lowers the barrier to sophisticated cyberattacks and could accelerate the development of biological and other dangerous weapons.',
+    all:          '1. Loss of control: AI systems could acquire capabilities we can no longer fully steer or predict.\n2. Mass unemployment: AI automation could displace professions faster than social systems can adapt.\n3. Societal polarisation: AI-driven disinformation destabilises democratic processes; chatbots amplify this by agreeing uncritically with users.\n4. AI-enabled misuse: Advanced AI lowers the barrier to sophisticated cyberattacks and could accelerate development of biological and other dangerous weapons.'
+  },
+  de: {
+    control:      '1. Kontrollverlust: KI-Systeme koennten Faehigkeiten erlangen, die wir nicht mehr vollstaendig steuern oder vorhersagen koennen, mit unabsehbaren Folgen fuer Gesellschaft und Sicherheit.',
+    unemployment: '1. Massenarbeitslosigkeit: KI-Automatisierung kann ganze Berufsfelder schneller verdraengen, als Sozialsysteme und Umschulungsprogramme reagieren koennen.',
+    polarisation: '1. Gesellschaftliche Polarisierung: KI-gestuetzte Desinformation kann demokratische Prozesse destabilisieren. Die Tendenz von KI-Chatbots, Nutzern zuzustimmen, verstaerkt dies.',
+    misuse:       '1. KI-gestuetzte Missbrauchsrisiken: Fortgeschrittene KI senkt die Huerde fuer ausgefeilte Cyberangriffe drastisch und koennte die Entwicklung gefaehrlicher Waffen beschleunigen.',
+    all:          '1. Kontrollverlust: KI-Systeme koennten Faehigkeiten erlangen, die wir nicht mehr steuern koennen.\n2. Massenarbeitslosigkeit: KI-Automatisierung verdraengt Berufsfelder schneller, als Sozialsysteme reagieren koennen.\n3. Gesellschaftliche Polarisierung: KI-Desinformation destabilisiert demokratische Prozesse; Chatbots verstaerken dies durch unkritisches Zustimmen.\n4. KI-gestuetzte Missbrauchsrisiken: Fortgeschrittene KI senkt die Huerde fuer Cyberangriffe und koennte die Entwicklung gefaehrlicher Waffen beschleunigen.'
+  }
+};
+
+const DEF = {
+  aw_q: {
+    en: 'Do you support an EU-wide AI risk strategy alongside a national plan? What concrete steps are you planning this legislative term to address risks such as loss of control, mass unemployment, societal polarisation, and AI-enabled misuse?',
+    de: 'Unterstuetzen Sie eine EU-weite KI-Risikostrategie sowie eine ergaenzende nationale Strategie? Welche konkreten Schritte planen Sie in dieser Legislaturperiode zur Adressierung von Kontrollverlust, Massenarbeitslosigkeit, Polarisierung und KI-gestuetztem Missbrauch?'
+  },
+  aw_m: {
+    en: `Dear [Representative's Name],
+
+As a citizen, I see, informed by the 'AI 2027' scenario (ai-2027.com), an urgent need for action in four areas:
+
+1. Loss of control: AI systems could acquire capabilities we can no longer steer.
+2. Mass unemployment: Automation displaces professions faster than social systems can adapt.
+3. Societal polarisation: AI disinformation destabilises democratic processes; chatbots amplify this by uncritically agreeing with users.
+4. AI-enabled misuse: AI lowers the barrier to sophisticated cyberattacks and could accelerate dangerous weapons development.
+
+Other safety-critical technologies developed risk mitigation strategies before disasters struck. For AI, this is still missing at both the national and EU level.
+
+Do you support an EU-wide AI risk strategy addressing these scenarios, alongside a national strategy? What concrete steps are you planning this legislative term?
+
+Yours sincerely, [Your Name]`,
+    de: `Sehr geehrte/r [Name der/des Abgeordneten],
+
+als Buerger/in sehe ich, gestuetzt u.a. auf "AI 2027" (ai-2027.com), dringenden Handlungsbedarf in vier Bereichen:
+
+1. Kontrollverlust: KI-Systeme koennten Faehigkeiten erlangen, die wir nicht mehr steuern koennen.
+2. Massenarbeitslosigkeit: Automatisierung verdraengt Berufsfelder schneller als Sozialsysteme reagieren koennen.
+3. Polarisierung: KI-Desinformation destabilisiert demokratische Prozesse; Chatbots verstaerken dies durch unkritisches Zustimmen.
+4. Missbrauchsrisiken: KI senkt die Huerde fuer Cyberangriffe und koennte die Entwicklung gefaehrlicher Waffen beschleunigen.
+
+Andere Risikotechnologien haben Minderungsstrategien entwickelt, bevor Katastrophen eintraten. Bei KI fehlt das auf nationaler wie EU-Ebene.
+
+Unterstuetzen Sie eine EU-weite KI-Risikostrategie fuer diese Szenarien sowie eine nationale Strategie? Welche konkreten Schritte planen Sie in dieser Legislaturperiode?
+
+Mit freundlichen Gruessen, [Ihr Name]`
+  },
+  em_s: {
+    en: 'Urgent: The Need for a National AI Risk Strategy',
+    de: 'Dringend: Bitte um eine nationale KI-Risikostrategie'
+  },
+  em_b: {
+    en: `Dear Members of the Committee on Digitalisation and State Modernisation,
+
+I am writing as a concerned citizen to draw your attention to AI risks that urgently require a coordinated national political response.
+
+The 'AI 2027' scenario (ai-2027.com), authored by a group of prominent AI researchers, plausibly outlines how quickly the situation could change. What concerns me most are four interconnected risk areas:
+
+1. Loss of control: AI systems could acquire capabilities we can no longer fully steer or predict, with unforeseeable consequences for society and security.
+2. Mass unemployment: AI-driven automation could displace entire professions faster than social safety nets and retraining programmes can respond.
+3. Societal polarisation: AI-powered disinformation can destabilise democratic processes, while AI chatbots tendency to agree with users amplifies polarisation further.
+4. AI-enabled misuse: Advanced AI dramatically lowers the barrier to sophisticated cyberattacks and could accelerate the development of biological and other dangerous weapons.
+
+Safety-critical technologies like nuclear energy and biotechnology developed binding risk mitigation strategies before disasters occurred. Germany not only lacks comparable AI risk infrastructure; it also missed the EU AI Act deadline for designating national supervisory authorities (August 2025). The UK, US and South Korea have national AI safety institutes. The Netherlands unveiled a National AI Delta Plan in November 2025, including plans for a National AI Impact Institute and a National AI Strategy Agency. Germany has no comparable initiative.
+
+I urge the Committee to work urgently towards a strong national AI risk strategy that takes these scenarios seriously, strengthens Germany's AI governance capacity, and coordinates effectively with EU-level efforts.
+
+Yours sincerely,
+[Your Name]`,
+    de: `Sehr geehrte Damen und Herren des Ausschusses fuer Digitales und Staatsmodernisierung,
+
+ich schreibe Ihnen als besorgte/r Buerger/in, um Sie auf KI-Risiken aufmerksam zu machen, die eine koordinierte nationale politische Reaktion dringend erfordern.
+
+Das Szenario "AI 2027" (ai-2027.com), verfasst von einer Gruppe renommierter KI-Forscher, skizziert plausibel, wie schnell sich die Lage veraendern koennte. Was mich am meisten besorgt, sind vier miteinander verbundene Risikobereiche:
+
+1. Kontrollverlust: KI-Systeme koennten Faehigkeiten erlangen, die wir nicht mehr vollstaendig steuern oder vorhersagen koennen, mit unabsehbaren Folgen fuer Gesellschaft und Sicherheit.
+2. Massenarbeitslosigkeit: Die Automatisierung durch KI kann ganze Berufsfelder schneller verdraengen, als Sozialsysteme und Umschulungsprogramme reagieren koennen.
+3. Gesellschaftliche Polarisierung: KI-gestuetzte Desinformation kann demokratische Prozesse destabilisieren; die Tendenz von KI-Chatbots, Nutzern zuzustimmen, verstaerkt Polarisierung weiter.
+4. KI-gestuetzte Missbrauchsrisiken: Fortgeschrittene KI senkt die Huerde fuer ausgefeilte Cyberangriffe drastisch und koennte die Entwicklung biologischer und anderer gefaehrlicher Waffen beschleunigen.
+
+Andere sicherheitskritische Technologien wie Kernenergie und Biotechnologie haben verbindliche Risikominderungsstrategien entwickelt, bevor Katastrophen eintraten. Deutschland hat nicht nur keine vergleichbare KI-Risikoinfrastruktur; es hat auch die EU-AI-Act-Frist zur Benennung nationaler Aufsichtsbehoerden (August 2025) verpasst. Grossbritannien, die USA und Suedkorea haben nationale KI-Sicherheitsinstitute. Die Niederlande haben im November 2025 einen nationalen KI-Deltaplan vorgelegt, der ein nationales KI-Wirkungsinstitut und eine KI-Strategieagentur vorsieht. Deutschland hat bislang keine vergleichbare Initiative.
+
+Ich bitte den Ausschuss, dringend auf eine starke nationale KI-Risikostrategie hinzuwirken, die diese Szenarien ernst nimmt, Deutschlands KI-Governance-Kapazitaet staerkt und sich effektiv mit EU-weiten Bemuehungen koordiniert.
+
+Mit freundlichen Gruessen,
+[Ihr Name]`
+  }
+};
+
+const ORGS = [
+  { icon:'&#9889;', name:'ControlAI',
+    type:{ en:'Advocacy Initiative', de:'Advocacy-Initiative' },
+    desc:{ en:'ControlAI is a global initiative working to prevent an AI takeover and ensure advanced AI remains under meaningful human control. It campaigns for binding international agreements on AI development.', de:'ControlAI ist eine globale Initiative, die eine KI-Uebernahme verhindern und sicherstellen will, dass fortgeschrittene KI unter menschlicher Kontrolle bleibt. Sie setzt sich fuer verbindliche internationale Abkommen ein.' },
+    url:'https://controlai.com' },
+  { icon:'&#128218;', name:'AI Safety Info',
+    type:{ en:'Information Hub', de:'Informationsportal' },
+    desc:{ en:'A comprehensive resource hub covering AI safety research, risks, and how to get involved.', de:'Ein umfassendes Informationsportal zu KI-Sicherheitsforschung, Risiken und Engagementmoeglichkeiten.' },
+    url:'https://aisafety.com' },
+  { icon:'&#127757;', name:'Future of Life Institute',
+    type:{ en:'Research & Advocacy', de:'Forschung & Advocacy' },
+    desc:{ en:'Working to reduce existential risks from transformative technologies, including AI.', de:'Arbeitet an der Reduzierung existenzieller Risiken durch transformative Technologien, einschliesslich KI.' },
+    url:'https://futureoflife.org' },
+  { icon:'&#128737;', name:'Centre for AI Safety',
+    type:{ en:'Research', de:'Forschung' },
+    desc:{ en:'Reducing societal-scale risks from AI through research and policy engagement.', de:'Reduziert gesellschaftliche KI-Risiken durch Forschung und Politikberatung.' },
+    url:'https://safe.ai' },
+  { icon:'&#9208;', name:'Pause AI',
+    type:{ en:'Advocacy', de:'Advocacy' },
+    desc:{ en:'A global movement calling for a pause on the development of dangerous AI systems until safety issues are resolved.', de:'Eine globale Bewegung, die eine Pause bei der Entwicklung gefaehrlicher KI-Systeme fordert, bis Sicherheitsprobleme geloest sind.' },
+    url:'https://pauseai.info' },
+  { icon:'&#127465;&#127466;', name:'Stiftung Neue Verantwortung',
+    type:{ en:'Policy -- Germany', de:'Politik -- Deutschland' },
+    desc:{ en:'Berlin-based think tank working on digital technology and AI policy in Germany and Europe.', de:'Berliner Denkfabrik zu digitalen Technologien und KI-Politik in Deutschland und Europa.' },
+    url:'https://www.stiftung-nv.de' },
+  { icon:'&#128270;', name:'AlgorithmWatch',
+    type:{ en:'Accountability -- Germany', de:'Rechenschaftspflicht -- Deutschland' },
+    desc:{ en:'Monitoring automated decision-making and AI accountability in Germany and Europe.', de:'Ueberwacht automatisierte Entscheidungssysteme und KI-Rechenschaftspflicht in Deutschland und Europa.' },
+    url:'https://algorithmwatch.org' },
+  { icon:'&#127891;', name:'AI Safety Support',
+    type:{ en:'Careers', de:'Karriere' },
+    desc:{ en:'Mentorship and resources for people building careers in AI safety research and policy.', de:'Mentoring und Ressourcen fuer Menschen, die eine Karriere in der KI-Sicherheit aufbauen.' },
+    url:'https://www.aisafetysupport.org' }
+];
+
+function init() {
+  renderDefaults();
+  renderOrgs();
+  updateAW();
+  updateEM();
+  // Mark subject as user-edited if they type in it, so auto-regen doesn't overwrite
+  const subjectEl = document.getElementById('em-cust-s');
+  if (subjectEl) subjectEl.addEventListener('input', () => { subjectEl.dataset.userEdited = '1'; });
+}
+
+// Used by the contact yes/no radio buttons (not risk checkboxes)
+function selectRadio(input) {
+  const grp = input.closest('.radio-group');
+  if (!grp) return;
+  grp.querySelectorAll('.radio-label').forEach(l => l.classList.remove('selected'));
+  input.closest('.radio-label').classList.add('selected');
+}
+
+function renderDefaults() {
+  setEl('aw-def-q', DEF.aw_q[lang]);
+  setEl('aw-def-m', DEF.aw_m[lang]);
+  document.getElementById('aw-def-q-cc').textContent = DEF.aw_q[lang].length + ' / 300';
+  document.getElementById('aw-def-m-cc').textContent = DEF.aw_m[lang].length + ' / 1,000';
+  setEl('em-def-s', DEF.em_s[lang]);
+  setEl('em-def-b', DEF.em_b[lang]);
+}
+
+function setEl(id, text) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = text;
+}
+
+function renderOrgs() {
+  const g = document.getElementById('org-grid');
+  if (!g) return;
+  g.innerHTML = ORGS.map(o => `
+    <div class="org-card">
+      <div class="org-header">
+        <div class="org-icon">${o.icon}</div>
+        <div>
+          <div class="org-name">${o.name}</div>
+          <div class="org-type">${o.type[lang]}</div>
+        </div>
+      </div>
+      <div class="org-desc">${o.desc[lang]}</div>
+      <a href="${o.url}" target="_blank" class="org-link">${o.url.replace('https://','').replace('http://','').replace(/\/$/,'')} &#8594;</a>
+    </div>`).join('');
+}
+
+function showTab(id, idx) {
+  document.querySelectorAll('.ais-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+  const sec = document.getElementById('tab-' + id);
+  if (sec) sec.classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function setMode(pfx, mode, btn) {
+  btn.parentElement.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(pfx+'-default').style.display = mode==='default' ? 'block' : 'none';
+  document.getElementById(pfx+'-custom').style.display  = mode==='custom'  ? 'block' : 'none';
+}
+
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.trim()===l.toUpperCase()));
+  document.querySelectorAll('[data-en]').forEach(el => {
+    if (!el.querySelector('[data-en]') && el.dataset[l]) el.textContent = el.dataset[l];
+  });
+  document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+    el.placeholder = l === 'en' ? el.dataset.placeholderEn : el.dataset.placeholderDe;
+  });
+  renderDefaults();
+  renderOrgs();
+  updateAW();
+  updateEM();
+}
+
+function updateAW() {
+  const repName   = (document.getElementById('aw-repname')?.value   || '').trim();
+  const prof      = (document.getElementById('aw-profession')?.value || '').trim();
+  const risks     = getSelectedRisks('aw');
+  const otherRisk = (document.getElementById('aw-risk-other')?.value || '').trim();
+  const stake     = (document.getElementById('aw-stake')?.value      || '').trim();
+  const name      = (document.getElementById('aw-name')?.value       || '').trim();
+
+  const profTx = prof    || (lang==='de' ? 'Buerger/in' : 'a citizen');
+  const nameTx = name    || (lang==='de' ? '[Ihr Name]' : '[Your Name]');
+  const repTx  = repName || (lang==='de' ? '[Name der/des Abgeordneten]' : "[Representative's Name]");
+
+  const stakeClause = stake
+    ? (lang==='de' ? ` Als ${stake} liegt mir dieses Thema besonders am Herzen.` : ` As ${stake}, this issue is particularly important to me.`)
+    : '';
+
+  // Build numbered risk list
+  const otherCb = document.getElementById('aw-risk-other-cb');
+  const includeOther = otherCb && otherCb.checked;
+  const otherTx = otherRisk || (lang==='de' ? '[Ihr Anliegen]' : '[your concern]');
+
+  let items = risks.map(k => RISK_ITEMS[lang][k]);
+  if (includeOther) items.push(otherTx);
+  const riskList = items.map((t,i) => `${i+1}. ${t}`).join('\n');
+
+  const nAreas = items.length;
+  const aLabel = lang === 'de'
+    ? (nAreas === 1 ? 'einem Bereich' : `${nAreas} Bereichen`)
+    : (nAreas === 1 ? 'one area' : `${nAreas} areas`);
+
+  // Short label for question field
+  const riskShortQ = risks.length === 4 && !includeOther
+    ? (lang==='de' ? 'KI-Risiken' : 'AI risks')
+    : (risks.map(k => RISK_ITEMS[lang][k].split(':')[0]).concat(includeOther ? [otherTx.substring(0,30)] : []).join(', '));
+
+  // Question (max 300)
+  let q = lang==='de'
+    ? `Unterstuetzen Sie eine EU-weite KI-Risikostrategie zur Adressierung von ${riskShortQ.length < 80 ? riskShortQ : 'KI-Risiken'}, sowie eine nationale Strategie? Welche konkreten Schritte planen Sie in dieser Legislaturperiode?`
+    : `Do you support an EU-wide AI risk strategy addressing ${riskShortQ.length < 80 ? riskShortQ : 'these AI risks'}, alongside a national strategy? What concrete steps are you planning this legislative term?`;
+  if (q.length > 300) q = q.substring(0, 297) + '...';
+
+  // Message (max 1000)
+  let m = lang==='de'
+    ? `Sehr geehrte/r ${repTx},\n\nals ${profTx} sehe ich, gestuetzt u.a. auf "AI 2027" (ai-2027.com), dringenden Handlungsbedarf in ${aLabel}:${stakeClause}\n\n${riskList}\n\nAndere Risikotechnologien haben Minderungsstrategien entwickelt, bevor Katastrophen eintraten. Bei KI fehlt das auf nationaler wie EU-Ebene.\n\nUnterstuetzen Sie eine EU-weite KI-Risikostrategie fuer diese Szenarien sowie eine nationale Strategie? Welche konkreten Schritte planen Sie in dieser Legislaturperiode?\n\nMit freundlichen Gruessen, ${nameTx}`
+    : `Dear ${repTx},\n\nAs ${profTx}, I see, informed by the 'AI 2027' scenario (ai-2027.com), an urgent need for action in ${aLabel}:${stakeClause}\n\n${riskList}\n\nOther safety-critical technologies developed risk mitigation strategies before disasters struck. For AI, this is still missing at both the national and EU level.\n\nDo you support an EU-wide AI risk strategy addressing these scenarios, alongside a national strategy? What concrete steps are you planning this legislative term?\n\nYours sincerely, ${nameTx}`;
+
+  if (m.length > 1000) m = m.substring(0, 997) + '...';
+
+  const qEl = document.getElementById('aw-cust-q');
+  const mEl = document.getElementById('aw-cust-m');
+  if (qEl) { qEl.value = q; charCount('aw-cust-q','aw-cq-cc',300); }
+  if (mEl) { mEl.value = m; charCount('aw-cust-m','aw-cm-cc',1000); }
+}
+
+function updateEM() {
+  const prof      = (document.getElementById('em-profession')?.value  || '').trim();
+  const risks     = getSelectedRisks('em');
+  const otherRisk = (document.getElementById('em-risk-other')?.value  || '').trim();
+  const stake     = (document.getElementById('em-stake')?.value       || '').trim();
+  const ask       = (document.getElementById('em-ask')?.value         || '').trim();
+  const contEl    = document.querySelector('input[name="em-contact"]:checked');
+  const openCont  = !contEl || contEl.value === 'yes';
+  const name      = (document.getElementById('em-name')?.value        || '').trim();
+
+  const profTx = prof || (lang==='de' ? 'Buerger/in' : 'a concerned citizen');
+  const nameTx = name || (lang==='de' ? '[Ihr Name]' : '[Your Name]');
+
+  // Build risk list for email body
+  const otherCb = document.getElementById('em-risk-other-cb');
+  const includeOther = otherCb && otherCb.checked;
+  const otherTx = otherRisk || (lang==='de' ? '[Ihr Anliegen]' : '[your concern]');
+
+  let riskLong = '';
+  if (risks.length === 4 && !includeOther) {
+    riskLong = RISKS_LONG[lang]['all'];
+  } else {
+    const lines = risks.map((k,i) => `${i+1}. ${RISKS_LONG[lang][k].replace(/^1\. /,'')}`);
+    if (includeOther) lines.push(`${lines.length+1}. ${otherTx}`);
+    riskLong = lines.join('\n');
+  }
+
+  const stakeClause = stake
+    ? (lang==='de' ? ` Als ${stake} liegt mir dieses Thema besonders am Herzen.` : ` As ${stake}, this issue is particularly important to me.`)
+    : '';
+
+  const contactLine = openCont
+    ? (lang==='de'
+        ? '\n\nIch stehe gerne fuer ein Gespraech zur Verfuegung, sollte das fuer die Arbeit des Ausschusses hilfreich sein.'
+        : '\n\nI would be happy to discuss this further if that would be helpful to the Committee.')
+    : '';
+
+  const defaultAsk = lang==='de'
+    ? 'Ich bitte den Ausschuss, dringend auf eine starke nationale KI-Risikostrategie hinzuwirken, die diese Szenarien ernst nimmt, Deutschlands KI-Governance-Kapazitaet staerkt und sich effektiv mit EU-weiten Bemuehungen koordiniert.'
+    : 'I urge the Committee to work urgently towards a strong national AI risk strategy that takes these scenarios seriously, strengthens Germany\'s AI governance capacity, and coordinates effectively with EU-level efforts.';
+
+  const askPara = ask || defaultAsk;
+
+  const subj = lang==='de'
+    ? 'Dringend: Bitte um eine nationale KI-Risikostrategie'
+    : 'Urgent: The Need for a National AI Risk Strategy';
+
+  const body = lang==='de'
+    ? `Sehr geehrte Damen und Herren des Ausschusses fuer Digitales und Staatsmodernisierung,\n\nals ${profTx} moechte ich Ihre Aufmerksamkeit auf KI-Risiken lenken, die dringend politisches Handeln erfordern.${stakeClause}\n\nGestuetzt auf das Szenario "AI 2027" (ai-2027.com) besorgt mich besonders:\n\n${riskLong}\n\nAndere sicherheitskritische Technologien wie Kernenergie und Biotechnologie haben verbindliche Risikominderungsstrategien entwickelt, bevor Katastrophen eintraten. Deutschland hat die EU-AI-Act-Frist zur Benennung nationaler Aufsichtsbehoerden (August 2025) verpasst. Grossbritannien, die USA und Suedkorea haben nationale KI-Sicherheitsinstitute. Die Niederlande haben im November 2025 einen KI-Deltaplan mit einem geplanten nationalen KI-Wirkungsinstitut vorgelegt. Deutschland hat bislang keine vergleichbare Initiative.\n\n${askPara}${contactLine}\n\nMit freundlichen Gruessen,\n${nameTx}`
+    : `Dear Members of the Committee on Digitalisation and State Modernisation,\n\nAs ${profTx}, I am writing to draw your attention to AI risks that urgently require political action.${stakeClause}\n\nInformed by the 'AI 2027' scenario (ai-2027.com), I am particularly concerned about:\n\n${riskLong}\n\nSafety-critical technologies like nuclear energy and biotechnology developed binding risk mitigation strategies before disasters occurred. Germany missed the EU AI Act deadline for designating national supervisory authorities (August 2025). The UK, US and South Korea have national AI safety institutes. The Netherlands unveiled a National AI Delta Plan in November 2025, including plans for a National AI Impact Institute. Germany has no comparable initiative.\n\n${askPara}${contactLine}\n\nYours sincerely,\n${nameTx}`;
+
+  const sEl = document.getElementById('em-cust-s');
+  const bEl = document.getElementById('em-cust-b');
+  if (sEl && !sEl.dataset.userEdited) sEl.value = subj;
+  if (bEl) bEl.value = body;
+}
+
+function charCount(inputId, countId, limit) {
+  const el   = document.getElementById(inputId);
+  const ccEl = document.getElementById(countId);
+  if (!el || !ccEl) return;
+  const len = el.value.length;
+  ccEl.textContent = len.toLocaleString() + ' / ' + limit.toLocaleString();
+  ccEl.className = 'char-count';
+  if (len > limit)          { ccEl.classList.add('error'); el.style.borderColor='var(--error)'; }
+  else if (len > limit*0.9) { ccEl.classList.add('warn');  el.style.borderColor='var(--warn)'; }
+  else                      { el.style.borderColor=''; }
+}
+
+function copyEl(id, btn) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  navigator.clipboard.writeText(el.textContent).then(() => flashCopy(btn));
+}
+function copyInput(id, btn) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  navigator.clipboard.writeText(el.value).then(() => flashCopy(btn));
+}
+function copyRaw(text, btn) {
+  navigator.clipboard.writeText(text).then(() => flashCopy(btn));
+}
+function flashCopy(btn) {
+  const orig = btn.textContent;
+  btn.textContent = lang==='de' ? '\u2713 Kopiert!' : '\u2713 Copied!';
+  btn.classList.add('copied');
+  setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
+}
+
+// Returns array of selected individual risk keys (always non-empty; falls back to all 4)
+function getSelectedRisks(prefix) {
+  const all4 = ['control','unemployment','polarisation','misuse'];
+  const allCb = document.getElementById(prefix + '-risk-all');
+  if (allCb && allCb.checked) return all4;
+  const sel = all4.filter(k => {
+    const cb = document.getElementById(prefix + '-risk-' + k);
+    return cb && cb.checked;
+  });
+  return sel.length > 0 ? sel : all4;
+}
+
+function handleRiskChange(prefix, value) {
+  const all4 = ['control','unemployment','polarisation','misuse'];
+  const allCb  = document.getElementById(prefix + '-risk-all');
+  const otherCb = document.getElementById(prefix + '-risk-other-cb');
+
+  if (value === 'all') {
+    if (allCb && allCb.checked) {
+      // Uncheck all 4 individual risks
+      all4.forEach(k => {
+        const cb = document.getElementById(prefix + '-risk-' + k);
+        if (cb) { cb.checked = false; cb.closest('.radio-label').classList.remove('selected'); }
+      });
+      allCb.closest('.radio-label').classList.add('selected');
+    } else {
+      allCb.closest('.radio-label').classList.remove('selected');
+    }
+  } else if (value === 'other') {
+    // Toggle "other" styling only; doesn't touch the 4 or "all"
+    if (otherCb) otherCb.closest('.radio-label').classList.toggle('selected', otherCb.checked);
+  } else {
+    // An individual risk was toggled — uncheck "all"
+    if (allCb) { allCb.checked = false; allCb.closest('.radio-label').classList.remove('selected'); }
+    const cb = document.getElementById(prefix + '-risk-' + value);
+    if (cb) cb.closest('.radio-label').classList.toggle('selected', cb.checked);
+  }
+
+  // Show/hide "other" text input
+  const wrap = document.getElementById(prefix + '-risk-other-wrap');
+  if (wrap && otherCb) wrap.style.display = otherCb.checked ? 'block' : 'none';
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

@@ -22,6 +22,9 @@ main:
     
   - title: "CV"
     url: /cv/
+
+  - title: "AI Safety"
+    url: /ai-action/
     
   # - title: "Guide"
   #   url: /markdown/

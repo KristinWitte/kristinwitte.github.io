@@ -247,13 +247,13 @@ hr.divider { border: none; border-top: 1px solid var(--border); margin: 1.75rem 
   <h2 class="h2">Abgeordnetenwatch</h2>
   <p class="body-p"
      data-en="Abgeordnetenwatch.de lets you post a public question to any member of the German Bundestag or the European Parliament. Your question and the representative's response are visible to everyone, creating public accountability. You can contact your local Bundestag member, your German MEPs in the EU Parliament, or both."
-     data-de="Abgeordnetenwatch.de ermöglicht es Ihnen, Mitgliedern des Deutschen Bundestags oder des Europäischen Parlaments öffentliche Fragen zu stellen. Frage und Antwort sind öffentlich sichtbar.">
+     data-de="Abgeordnetenwatch.de ermöglicht es Ihnen, Abgeordneten öffentliche Fragen zu stellen. Frage und Antwort sind öffentlich sichtbar.">
     Abgeordnetenwatch.de lets you post a public question to any member of the German Bundestag or the European Parliament. Your question and the representative's response are visible to everyone, creating public accountability.
   </p>
   <p class="body-p"
-     data-en="You paste two things: a short question (max 300 characters) into the question field, and a longer message (max 1,000 characters) as supporting context."
-     data-de="Sie fügen zwei Texte ein: eine kurze Frage (max. 300 Zeichen) in das Fragefeld und eine längere Nachricht (max. 1.000 Zeichen) als Kontext.">
-    You paste two things: a short question (max 300 characters) into the question field, and a longer message (max 1,000 characters) as supporting context.
+     data-en="You paste two things: a short question (max 200 characters) into the question field, and a longer message (max 1,000 characters) as supporting context."
+     data-de="Sie fügen zwei Texte ein: eine kurze Frage (max. 200 Zeichen) in das Fragefeld und eine längere Nachricht (max. 1.000 Zeichen) als Kontext.">
+    You paste two things: a short question (max 200 characters) into the question field, and a longer message (max 1,000 characters) as supporting context.
   </p>
   <div class="notice">
     <span data-en="Works for members of the Bundestag and the European Parliament. Find your representative at"
@@ -274,8 +274,8 @@ hr.divider { border: none; border-top: 1px solid var(--border); margin: 1.75rem 
 
   <!-- AW DEFAULT -->
   <div id="aw-default">
-    <p class="h3" data-en="STEP 1 -- COPY THE QUESTION FIELD (max 300 characters)"
-                  data-de="SCHRITT 1 -- FRAGE KOPIEREN (max. 300 Zeichen)">STEP 1 -- COPY THE QUESTION FIELD (max 300 characters)</p>
+    <p class="h3" data-en="STEP 1 -- COPY THE QUESTION FIELD (max 200 characters)"
+                  data-de="SCHRITT 1 -- FRAGE KOPIEREN (max. 200 Zeichen)">STEP 1 -- COPY THE QUESTION FIELD (max 200 characters)</p>
     <div class="msg-box">
       <div id="aw-def-q" class="msg-text"></div>
       <div class="msg-footer">
@@ -372,12 +372,12 @@ hr.divider { border: none; border-top: 1px solid var(--border); margin: 1.75rem 
     </div>
 
     <p class="h3 mt-3"
-       data-en="YOUR QUESTION FIELD (max 300 characters -- paste into the question field)"
-       data-de="IHR FRAGEFELD (max. 300 Zeichen -- in das Fragefeld einfügen)">YOUR QUESTION FIELD (max 300 characters)</p>
+       data-en="YOUR QUESTION FIELD (max 200 characters -- paste into the question field)"
+       data-de="IHR FRAGEFELD (max. 200 Zeichen -- in das Fragefeld einfügen)">YOUR QUESTION FIELD (max 200 characters)</p>
     <textarea class="textarea" id="aw-cust-q" rows="3" style="min-height:80px"
-              oninput="charCount('aw-cust-q','aw-cq-cc',300)"></textarea>
+              oninput="charCount('aw-cust-q','aw-cq-cc',200)"></textarea>
     <div class="msg-footer mb-2">
-      <span class="char-count" id="aw-cq-cc">0 / 300</span>
+      <span class="char-count" id="aw-cq-cc">0 / 200</span>
       <button class="btn btn-copy" onclick="copyInput('aw-cust-q',this)"
               data-en="Copy question" data-de="Frage kopieren">Copy question</button>
     </div>
@@ -660,8 +660,8 @@ const RISKS_LONG = {
 
 const DEF = {
   aw_q: {
-    en: 'Do you support an EU-wide AI risk strategy alongside a national plan? What concrete steps are you planning this legislative term to address risks such as loss of control, mass unemployment, societal polarisation, and AI-enabled misuse?',
-    de: 'Unterstützen Sie eine EU-weite KI-Risikostrategie sowie eine ergänzende nationale Strategie? Welche konkreten Schritte planen Sie in dieser Legislaturperiode zur Adressierung von Kontrollverlust, Massenarbeitslosigkeit, Polarisierung und KI-gestützter Kriminalität?'
+    en: 'Do you support an EU-wide AI risk strategy and a national plan? What concrete steps are you taking this term on loss of control, unemployment, polarisation, and AI misuse?',
+    de: 'Unterstützen Sie eine EU-weite und nationale KI-Risikostrategie? Welche Schritte planen Sie in dieser Legislaturperiode gegen Kontrollverlust, Arbeitslosigkeit, Polarisierung und KI-Missbrauch?'
   },
   aw_m: {
     en: `Dear [Representative's Name],
@@ -791,7 +791,7 @@ function selectRadio(input) {
 function renderDefaults() {
   setEl('aw-def-q', DEF.aw_q[lang]);
   setEl('aw-def-m', DEF.aw_m[lang]);
-  document.getElementById('aw-def-q-cc').textContent = DEF.aw_q[lang].length + ' / 300';
+  document.getElementById('aw-def-q-cc').textContent = DEF.aw_q[lang].length + ' / 200';
   document.getElementById('aw-def-m-cc').textContent = DEF.aw_m[lang].length + ' / 1,000';
   setEl('em-def-s', DEF.em_s[lang]);
   setEl('em-def-b', DEF.em_b[lang]);
@@ -888,7 +888,7 @@ function updateAW() {
   let q = lang==='de'
     ? `Unterstützen Sie eine EU-weite KI-Risikostrategie zur Adressierung von ${riskShortQ.length < 80 ? riskShortQ : 'KI-Risiken'}, sowie eine nationale Strategie? Welche konkreten Schritte planen Sie in dieser Legislaturperiode?`
     : `Do you support an EU-wide AI risk strategy addressing ${riskShortQ.length < 80 ? riskShortQ : 'these AI risks'}, alongside a national strategy? What concrete steps are you planning this legislative term?`;
-  if (q.length > 300) q = q.substring(0, 297) + '...';
+  if (q.length > 200) q = q.substring(0, 197) + '...';
 
   // Message (max 1000)
   let m = lang==='de'
@@ -899,7 +899,7 @@ function updateAW() {
 
   const qEl = document.getElementById('aw-cust-q');
   const mEl = document.getElementById('aw-cust-m');
-  if (qEl) { qEl.value = q; charCount('aw-cust-q','aw-cq-cc',300); }
+  if (qEl) { qEl.value = q; charCount('aw-cust-q','aw-cq-cc',200); }
   if (mEl) { mEl.value = m; charCount('aw-cust-m','aw-cm-cc',1000); }
 }
 

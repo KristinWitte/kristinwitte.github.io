@@ -23,8 +23,11 @@ I really like bouldering, hiking, sailing and generally being outdoors. I have a
 
 
 ## News
+- *August 2026*: I started working for [Fault Line AI](https://faultlineai.com/) on a 6-months project. I evaluate their auditing agent and help make healthcare AI safer! 
+- *July 2026*: I gave a talk a 30 minute talk on a range of projects related to LLMs in psychiatry at the [Summer Meeting of the British Association for Psychopharmacology](https://www.bap.org.uk/BAP2026)
+- *May 2026*: I gave a talk on my work evaluating LLMs in long-context interactions at the Behavioural Clones Workshop alongside the Machine+Behaviour conference in Berlin. 
 - *April 2026*: I was accepted to join the 8th cohort of the [Alignment Research Engineer Accelerator (Arena)](https://www.arena.education/) starting May 25th. Seems like May will be a big AI Safety learning month for me and I am beyond excited about these opportunities. 
-- *March 2026*: I was accepted to attend the [ML4Good Technical AI Safety Bootcamp](https://ml4good.org/technical-track/) in May. Can't wait! 
+- *March 2026*: I was accepted. to attend the [ML4Good Technical AI Safety Bootcamp](https://ml4good.org/technical-track/) in May. Can't wait! 
 - *Febuary 2026*: I attended the annual meeting of the International Association for Safe and Ethical AI (IASEAI) in Paris. So many insightful conversations!
 - *January 2026*: I gave my first ever lecture to LMU medical students on challenges and opportunities of using AI chatbots in Medicine.
 - *July 2025*: The paper [A foundation model to predict and capture human cognition](https://www.nature.com/articles/s41586-025-09215-4) was accepted for publication in Nature.
